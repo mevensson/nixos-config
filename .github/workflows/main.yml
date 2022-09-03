@@ -14,17 +14,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
+      - name: Check out repository
+        uses: actions/checkout@v3
 
-      # Install Nix
-      - uses: cachix/install-nix-action@v17
+      - name: Install Nix
+        uses: cachix/install-nix-action@v17
 
-      - uses: cachix/cachix-action@v10
+      - name: Configure Cachix caches
+        uses: cachix/cachix-action@v10
         with:
           name: mevensson-nixos-config
           authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
           extraPullNames: nrdxp,nix-community
 
-      # Check Flake
-      - run: nix flake check --show-trace
+      - name: Check Flake
+        run: nix flake check --show-trace
