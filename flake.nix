@@ -119,13 +119,35 @@
           hosts = {
             /* set host-specific properties here */
             NixOS = { };
+            t14g1 = {
+              channelName = "latest";
+              modules = [
+                nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen1
+                nixos-hardware.nixosModules.common-pc-laptop-ssd
+              ];
+            };
           };
           importables = rec {
             profiles = digga.lib.rakeLeaves ./profiles // {
               users = digga.lib.rakeLeaves ./users;
             };
             suites = with profiles; rec {
-              base = [ core.nixos users.nixos users.root ];
+              base = [
+                core.nixos
+                misc.boot.systemd
+                misc.locales
+                services.fwupd
+                services.sshd
+                users.matte
+                users.root
+              ];
+              desktop = base ++ [
+                graphical.gnome
+                graphical.sound
+                graphical.steam
+                graphical.libreoffice
+                development.vscode
+              ];
             };
           };
         };
@@ -164,7 +186,7 @@
           importables = rec {
             profiles = digga.lib.rakeLeaves ./users/profiles;
             suites = with profiles; rec {
-              base = [ direnv git ];
+              base = [ direnv git shell ];
             };
           };
           users = {
