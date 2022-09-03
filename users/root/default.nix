@@ -1,5 +1,4 @@
 { ... }:
-# recommend using `hashedPassword`
 {
-  users.users.root.password = "";
+  users.users.root.hashedPassword = "!";
 }
