@@ -4,15 +4,15 @@ on:
   workflow_dispatch:
 
   jobs:
-  lockfile:
-  runs-on: ubuntu-latest
+    lockfile:
+      runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v3
+      steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Install Nix
-      uses: cachix/install-nix-action@v17
+      - name: Install Nix
+        uses: cachix/install-nix-action@v17
 
-    - name: Update flake.lock
-      uses: DeterminateSystems/update-flake-lock@v13
+      - name: Update flake.lock
+        uses: DeterminateSystems/update-flake-lock@v13
