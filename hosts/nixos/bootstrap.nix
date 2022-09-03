@@ -4,7 +4,7 @@
     # profiles.networking
     profiles.core.nixos
     profiles.users.root # make sure to configure ssh keys
-    profiles.users.nixos
+    profiles.users.matte
   ];
 
   boot.loader.systemd-boot.enable = true;

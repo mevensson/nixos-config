@@ -118,7 +118,6 @@
           imports = [ (digga.lib.importHosts ./hosts/nixos) ];
           hosts = {
             /* set host-specific properties here */
-            NixOS = { };
             t14g1 = {
               channelName = "latest";
               modules = [
@@ -205,7 +204,7 @@
             # it could just be left to the developer to determine what's
             # appropriate. after all, configuring these hm users is one of the
             # first steps in customizing the template.
-            nixos = { suites, ... }: { imports = suites.base; };
+            matte = { suites, ... }: { imports = suites.base; };
             darwin = { suites, ... }: { imports = suites.base; };
           }; # digga.lib.importers.rakeLeaves ./users/hm;
         };
