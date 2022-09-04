@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  flake-check:
     runs-on: ubuntu-latest
 
     steps:
