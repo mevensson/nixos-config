@@ -2,6 +2,10 @@ name: update-flake-lock
 on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  
+  # Run on Saturday 02:00 UTC
+  schedule:
+  - cron: "0 2 * * 6"
 
 jobs:
   update-flake-lock:
