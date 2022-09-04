@@ -133,6 +133,7 @@
             suites = with profiles; rec {
               base = [
                 core.nixos
+                misc.autoupgrade
                 misc.boot.systemd
                 misc.locales
                 services.fwupd
