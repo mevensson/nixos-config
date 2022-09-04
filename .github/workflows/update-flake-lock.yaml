@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  lockfile:
+  update-flake-lock:
     runs-on: ubuntu-latest
 
     steps:
