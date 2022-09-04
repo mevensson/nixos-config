@@ -146,6 +146,7 @@
                 graphical.sound
                 graphical.steam
                 graphical.libreoffice
+                development.gh
                 development.vscode
               ];
             };
