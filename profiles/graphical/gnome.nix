@@ -18,7 +18,7 @@
     gnomeExtensions.sound-output-device-chooser
     gnomeExtensions.tiling-assistant
     gnomeExtensions.vitals
-    gnomeExtensions.weather-in-the-clock
+    #gnomeExtensions.weather-in-the-clock
     firefox
     variety
   ];
