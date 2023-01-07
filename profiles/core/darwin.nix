@@ -1,6 +1,10 @@
-{ self, config, lib, pkgs, ... }:
-
 {
+  self,
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./common.nix
   ];
@@ -12,7 +16,6 @@
   users.nix.configureBuildUsers = true;
 
   environment = {
-
     systemPackages = with pkgs; [
       m-cli
       terminal-notifier
@@ -23,11 +26,9 @@
     shellAliases = {
       nrb = "sudo darwin-rebuild switch --flake";
     };
-
   };
 
   nix = {
-
     nixPath = [
       # TODO: This entry should be added automatically via FUP's
       # `nix.linkInputs` and `nix.generateNixPathFromInputs` options, but
@@ -41,9 +42,11 @@
       "darwin=/etc/nix/inputs/darwin"
     ];
 
-    # Administrative users on Darwin are part of this group.
-    trustedUsers = [ "@admin" ];
+    # Prevents impurities in builds
+    useSandbox = true;
 
+    # Give special Nix privileges.
+    trustedUsers = ["root" "@wheel" "@admin"];
   };
 
   programs.bash = {
@@ -57,5 +60,4 @@
       eval "$(${pkgs.direnv}/bin/direnv hook bash)"
     '';
   };
-
 }
