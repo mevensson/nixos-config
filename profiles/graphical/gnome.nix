@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   environment.systemPackages = with pkgs; [
     gnome.gnome-tweaks
     #gnomeExtensions.arcmenu
@@ -28,7 +27,7 @@
   fonts.fonts = with pkgs; [
     corefonts
     fira-code
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+    (nerdfonts.override {fonts = ["FiraCode" "DroidSansMono"];})
   ];
 
   services = {
