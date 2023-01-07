@@ -1,5 +1,4 @@
-{ ... }:
-{
+{...}: {
   system.autoUpgrade = {
     enable = true;
     flake = "github:mevensson/nixos-config";

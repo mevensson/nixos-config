@@ -1,19 +1,23 @@
-{ config, lib, pkgs, modulesPath, ... }:
 {
-  imports =
-    [
-      (modulesPath + "/installer/scan/not-detected.nix")
-    ];
+  config,
+  lib,
+  pkgs,
+  modulesPath,
+  ...
+}: {
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "ehci_pci" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
-  boot.extraModulePackages = [ ];
+  boot.initrd.availableKernelModules = ["nvme" "ehci_pci" "xhci_pci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc"];
+  boot.initrd.kernelModules = [];
+  boot.kernelModules = ["kvm-amd"];
+  boot.extraModulePackages = [];
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/7f5f422d-517d-408a-b536-2b92472bcf60";
     fsType = "btrfs";
-    options = [ "subvol=@" ];
+    options = ["subvol=@"];
   };
 
   fileSystems."/boot" = {
@@ -24,10 +28,10 @@
   fileSystems."/home" = {
     device = "/dev/disk/by-uuid/7f5f422d-517d-408a-b536-2b92472bcf60";
     fsType = "btrfs";
-    options = [ "subvol=@home" ];
+    options = ["subvol=@home"];
   };
 
   swapDevices = [
-    { device = "/dev/disk/by-uuid/c3229762-abc3-410e-89ea-a6feb220d038"; }
+    {device = "/dev/disk/by-uuid/c3229762-abc3-410e-89ea-a6feb220d038";}
   ];
 }

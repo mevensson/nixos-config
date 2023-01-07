@@ -1,8 +1,14 @@
-{ suites, config, pkgs, ... }:
 {
-  imports = suites.desktop ++ [
-    ./hardware.nix
-  ];
+  suites,
+  config,
+  pkgs,
+  ...
+}: {
+  imports =
+    suites.desktop
+    ++ [
+      ./hardware.nix
+    ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 

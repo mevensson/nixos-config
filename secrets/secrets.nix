@@ -4,9 +4,8 @@ let
 
   matte = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFK7dAPVafqqETZNEPwtzYVjzrR3pdEqhLSkwAF0J0rH";
 
-  allKeys = [ ryzen t14g1 matte ];
-in
-{
+  allKeys = [ryzen t14g1 matte];
+in {
   "matte_password.age".publicKeys = allKeys;
   "matte_id_ed25519.age".publicKeys = allKeys;
 }
