@@ -71,7 +71,10 @@
     {
       inherit self inputs;
 
-      channelsConfig = {allowUnfree = true;};
+      channelsConfig = {
+        allowUnfree = true;
+        allowUnsupportedSystem = true;
+      };
 
       channels = {
         nixos = {
@@ -202,7 +205,7 @@
         importables = rec {
           profiles = digga.lib.rakeLeaves ./users/profiles;
           suites = with profiles; rec {
-            base = [direnv git shell];
+            base = [direnv git shell vscode];
           };
         };
         users = {
