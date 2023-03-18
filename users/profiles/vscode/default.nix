@@ -8,7 +8,7 @@
       github.vscode-pull-request-github
       jnoortheen.nix-ide
       llvm-vs-code-extensions.vscode-clangd
-      ms-python.python
+      #ms-python.python
       ms-python.vscode-pylance
       ms-vscode.cmake-tools
       ms-vscode.cpptools
