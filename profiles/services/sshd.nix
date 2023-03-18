@@ -3,6 +3,8 @@
     enable = true;
 
     openFirewall = true;
-    passwordAuthentication = false;
+    settings = {
+      PasswordAuthentication = false;
+    };
   };
 }
