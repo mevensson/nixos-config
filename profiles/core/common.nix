@@ -90,7 +90,11 @@ in {
 
   nix = {
     # Improve nix store disk usage
-    gc.automatic = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 365d";
+    };
 
     # Generally useful nix option defaults
     extraOptions = ''
