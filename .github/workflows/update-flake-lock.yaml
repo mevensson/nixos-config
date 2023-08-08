@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
   
   # Run on Saturday 02:00 UTC
-  schedule:
-  - cron: "0 2 * * 6"
+  #schedule:
+  #- cron: "0 2 * * 6"
 
 jobs:
   update-flake-lock:
