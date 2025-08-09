@@ -54,6 +54,7 @@
             disko.nixosModules.disko
           ]
           ++ nixpkgs.lib.filesystem.listFilesRecursive ./modules
+          ++ nixpkgs.lib.filesystem.listFilesRecursive ./users
           ++ nixpkgs.lib.filesystem.listFilesRecursive ./hosts/live-installer;
         };
       };
