@@ -16,10 +16,11 @@
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , devshell
-    , treefmt-nix
+    {
+      nixpkgs,
+      devshell,
+      treefmt-nix,
+      ...
     }:
     let
       system = "x86_64-linux";
@@ -33,7 +34,7 @@
 
       treefmtEval = treefmt-nix.lib.evalModule pkgs {
         projectRootFile = "flake.nix";
-        programs.nixpkgs-fmt.enable = true;
+        programs.nixfmt.enable = true;
       };
     in
     {
