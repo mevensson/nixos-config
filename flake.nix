@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,6 +24,7 @@
     {
       nixpkgs,
       devshell,
+      disko,
       treefmt-nix,
       ...
     }:
@@ -38,6 +44,20 @@
       };
     in
     {
+      # NixOS Configuration
+      nixosConfigurations = {
+
+        # Live Installer
+        live-installer = nixpkgs.lib.nixosSystem {
+          inherit system;
+          modules = [
+            disko.nixosModules.disko
+          ]
+          ++ nixpkgs.lib.filesystem.listFilesRecursive ./modules
+          ++ nixpkgs.lib.filesystem.listFilesRecursive ./hosts/live-installer;
+        };
+      };
+
       # Dev Shell
       devShells.${system}.default = pkgs.devshell.mkShell {
         name = "NixOS Configuration";

@@ -1,4 +1,5 @@
 {
+    "editor.wordWrapColumn": 120,
     "nix.enableLanguageServer": true,
     "nix.formatterPath": "nixfmt",
     "nix.serverPath": "nixd"
