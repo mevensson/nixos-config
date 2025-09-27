@@ -77,8 +77,9 @@
         ];
 
         packages = with pkgs; [
-          nixd
+          gh
           nixfmt
+          nixd
         ];
       };
 

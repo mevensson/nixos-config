@@ -1,5 +1,6 @@
 {
     "recommendations": [
+        "github.vscode-github-actions",
         "github.vscode-pull-request-github",
         "jnoortheen.nix-ide",
         "mkhl.direnv",
